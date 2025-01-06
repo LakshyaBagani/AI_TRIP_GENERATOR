@@ -21,7 +21,7 @@ function Headers() {
 
   useEffect(() => {
     console.log(user);
-  });
+  } , []);
 
   const login = useGoogleLogin({
     onSuccess: (codeResp) => GetUsetProfile(codeResp),

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { IoIosSend } from "react-icons/io";
 
+
 function InfoSection({ trip }) {
+
+  
+
   return (
     <div>
       <img src="" className="h-[240px] w-full object-cover rounded-xl" />
