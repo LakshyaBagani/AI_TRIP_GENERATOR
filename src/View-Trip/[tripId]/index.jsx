@@ -6,6 +6,7 @@ import InfoSection from '../Components/InfoSection'
 import { db } from '@/Service/FirebaseCongif'
 import Hotels from '../Components/Hotels'
 import PlacesToVisit from '../Components/PlacesToVisit'
+import Footer from '../Components/Footer'
 
 function Viewtrip() {
     const {tripId} = useParams()
@@ -20,11 +21,8 @@ function Viewtrip() {
         const docRef = doc(db,'AITrips',tripId)
         const docSnap = await getDoc(docRef)
 
-          if(docSnap.exists()){
-            console.log("Document" , docSnap.data());            
-            setTrip(docSnap.data())
-            console.log("saved trip -> ", trip)
-            
+          if(docSnap.exists()){            
+            setTrip(docSnap.data()) 
           }else{
             console.log("No such Document");
             toast("No trip found")
@@ -37,6 +35,7 @@ function Viewtrip() {
     <InfoSection trip={trip} />
     <Hotels trip={trip} />
     <PlacesToVisit trip={trip} />
+    <Footer trip={trip} />
     </div>
   )
 }

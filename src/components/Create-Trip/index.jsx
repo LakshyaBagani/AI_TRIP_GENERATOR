@@ -100,9 +100,6 @@ function CreateTrip() {
       id: docId,
     });
     setLoading(false);
-    console.log(TripData);
-    console.log(formData);
-
     navigate("/view-trip/" + docId);
   };
 

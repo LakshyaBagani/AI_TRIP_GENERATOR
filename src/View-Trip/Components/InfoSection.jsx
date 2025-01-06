@@ -1,11 +1,24 @@
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { IoIosSend } from "react-icons/io";
+import { GetPlaceDetails } from "@/Service/GlobalAPI";
 
 
 function InfoSection({ trip }) {
 
-  
+    useEffect(()=>{
+      trip&&GetPlacePhoto()
+    } , [trip])
+
+    const GetPlacePhoto = async ()=>{
+      const data = {
+        textQuery : trip?.userSelection?.location,
+      }
+      const result = await GetPlaceDetails().then(resp=>{
+        console.log("LAKSHYA",resp.data.places[0].photos[3].name);
+        
+      })
+    }
 
   return (
     <div>

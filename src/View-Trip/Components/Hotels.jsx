@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Hotels({ trip }) {
-  console.log("trip data -> ", trip);
 
   return (
     <div>

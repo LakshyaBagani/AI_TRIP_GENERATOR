@@ -27,7 +27,6 @@ function MyTrip() {
     const querySnapshot = await getDoc(q);
     setUserTrip([]);
     querySnapshot.forEach((doc) => {
-      console.log(doc?.id, "=>", doc?.data());
       setUserTrip((preVal) => [...preVal, doc?.data()]);
     });
   };
