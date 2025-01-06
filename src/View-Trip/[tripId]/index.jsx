@@ -5,6 +5,7 @@ import { toast } from 'sonner'
 import InfoSection from '../Components/InfoSection'
 import { db } from '@/Service/FirebaseCongif'
 import Hotels from '../Components/Hotels'
+import PlacesToVisit from '../Components/PlacesToVisit'
 
 function Viewtrip() {
     const {tripId} = useParams()
@@ -35,6 +36,7 @@ function Viewtrip() {
 
     <InfoSection trip={trip} />
     <Hotels trip={trip} />
+    <PlacesToVisit trip={trip} />
     </div>
   )
 }
