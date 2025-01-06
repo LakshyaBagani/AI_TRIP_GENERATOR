@@ -1,17 +1,21 @@
-import axios from "axios"
+import axios from 'axios';
 
-const BASE_URL="https://places.googleapis.com/v1/places:searchText"
+const BASE_URL = "https://places.googleapis.com/v1/places:searchText";
 
-const config ={
-    headers:{
-        'Content-Type' : 'application/json',
+const config = {
+    headers: {
+        'Content-Type': 'application/json',
         'X-Goog-Api-Key': import.meta.env.VITE_GOOGLE_PLACE_API_KEY,
-        'X-Goog-FielsMask' :[
-            'places.photos',
-            'places.displayName',
-            'places.id'
-        ]
+        'X-Goog-FieldsMask': 'places.photos,places.displayName,places.id' 
     }
-}
+};
 
-export const GetPlaceDetails = (data)=>axios.post(BASE_URL , data , config)
+export const GetPlaceDetails = async (data) => {
+    try {
+        const response = await axios.post(BASE_URL, data, config);
+        return response.data; 
+    } catch (error) {
+        console.error("Error fetching place details:", error);
+        throw error;
+    }
+};

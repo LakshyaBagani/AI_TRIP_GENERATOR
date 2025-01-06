@@ -8,16 +8,21 @@ function InfoSection({ trip }) {
 
     useEffect(()=>{
       trip&&GetPlacePhoto()
-    } , [trip])
+    },[trip])
 
     const GetPlacePhoto = async ()=>{
+      
       const data = {
-        textQuery : trip?.userSelection?.location,
+        textQuery:trip?.userSelection?.location,
       }
-      const result = await GetPlaceDetails().then(resp=>{
-        console.log("LAKSHYA",resp.data.places[0].photos[3].name);
-        
-      })
+      console.log("Data" , data);
+      
+      const result = await GetPlaceDetails(data);
+
+      console.log("result", result)
+    
+      console.log("Response");
+      
     }
 
   return (
