@@ -8,10 +8,11 @@ import Hotels from '../Components/Hotels'
 
 function Viewtrip() {
     const {tripId} = useParams()
-    const [trip , setTrip] = useState()
+    const [trip , setTrip] = useState({})
 
     useEffect(()=>{
         tripId&&GetTripData();
+        
     } , [tripId])
 
     const GetTripData  = async ()=>{
@@ -21,6 +22,8 @@ function Viewtrip() {
           if(docSnap.exists()){
             console.log("Document" , docSnap.data());            
             setTrip(docSnap.data())
+            console.log("saved trip -> ", trip)
+            
           }else{
             console.log("No such Document");
             toast("No trip found")
