@@ -18,8 +18,10 @@ function InfoSection({ trip }) {
         }
         console.log("Data" , data);
         
-        const result = await GetPlaceDetails(data)
-        console.log("result",result);
+        const response = await GetPlaceDetails(data);
+        console.log("resp" , response.data);
+        
+       
         
     }
 

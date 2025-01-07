@@ -15,6 +15,8 @@ const config = {
     }
 };
 
-export const GetPlaceDetails =  (data) => axios.post(BASE_URL,data,config)
+export const GetPlaceDetails =  (data) =>  {
+    return axios.post(BASE_URL,data,config)
+}
     
     
