@@ -8,12 +8,12 @@ function PlacesToVisit({ trip }) {
 
       <div>
         {trip?.tripData?.map((tripItem, index) =>
-          tripItem?.itinerary?.map((itinerary, itineraryIndex) => (
+          tripItem?.itineary?.map((itineary, itineraryIndex) => (
             <div key={`${index}-${itineraryIndex}`} className="mt-5">
-              <h2 className="font-medium text-lg mb-2">Day {itinerary?.day}</h2>
+              <h2 className="font-medium text-lg mb-2">Day {itineary?.day}</h2>
 
             <div className="grid md:grid-cols-2 gap-5">
-                {itinerary?.places?.map((place, placeIndex) => (
+                {itineary?.places?.map((place, placeIndex) => (
                     <div key={`${index}-${itineraryIndex}-${placeIndex}`} className="my-3">
                     
                      <PlaceCardItem place={place} />

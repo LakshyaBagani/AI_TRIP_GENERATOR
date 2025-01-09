@@ -6,24 +6,26 @@ import { GetPlaceDetails } from "@/Service/GlobalAPI";
 function InfoSection({ trip }) {
    
 
-       useEffect(() => {
-         trip && GetPlacePhoto();
-        }, [trip]);
+    useEffect(() => {
+        if (trip) {
+            GetPlacePhoto();
+        }
+    }, [trip]);
 
-
- 
+    
     const GetPlacePhoto = async () => {
         const data = {
-          textQuery:trip?.userSelection?.location,
+            textQuery: trip?.userSelection?.location,
+        };
+        console.log("Data:", data);
+
+        try {
+            const response = await GetPlaceDetails(data);
+            console.log("Response:", response ? response : "Not Done");
+        } catch (error) {
+            console.error("Error in fetching data:", error);
         }
-        console.log("Data" , data);
-        
-        const response = await GetPlaceDetails(data);
-        console.log("resp" , response.data);
-        
-       
-        
-    }
+    };
 
 
     return (
@@ -59,6 +61,7 @@ function InfoSection({ trip }) {
             </div>
         </div>
     );
+
 }
 
 export default InfoSection;
