@@ -10,12 +10,4 @@ const config = {
     }
 };
 
-export const GetPlaceDetails = async (data) => {
-    try {
-        const response = await axios.post(BASE_URL, data, config);
-        return response.data; 
-    } catch (error) {
-        console.error('Error fetching place details:', error); 
-        throw error;
-    }
-};
+export const GetPlaceDetails =  (data) => axios.post(BASE_URL , data , config)
