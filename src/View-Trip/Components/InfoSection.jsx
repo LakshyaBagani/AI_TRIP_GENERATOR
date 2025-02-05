@@ -1,38 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { IoIosSend } from "react-icons/io";
-import { GetPlaceDetails } from "@/Service/GlobalAPI";
+import { GetPlaceDetails, PHOTO_REF_URL } from "@/Service/GlobalAPI";
 
 function InfoSection({ trip }) {
-   
 
-    useEffect(() => {
-        if (trip) {
-            GetPlacePhoto();
-        }
-    }, [trip]);
-
+    const [photoURL,setPhotoUrl] = useState()
     
     const GetPlacePhoto = async () => {
         const data = {
             textQuery: trip?.userSelection?.location,
         };
-        console.log("Data:", data);
-
-        try {
-            const response = await GetPlaceDetails(data);
-            console.log("Response:", response ? response : "Not Done");
-        } catch (error) {
-            console.error("Error in fetching data:", error);
-        }
+            const response = await GetPlaceDetails(data)
+            const PhotoURl = PHOTO_REF_URL.replace('{NAME}' , response.places[0].photos[3].name )
+            setPhotoUrl(PhotoURl);
+            
     };
+
+    useEffect(() => {
+        trip&&GetPlacePhoto()
+    }, [trip]);
 
 
     return (
         <div>
             <img 
-                src=""
-                className="h-[240px] w-full object-cover rounded-xl" 
+                src={photoURL}
+                className="h-[600px] w-full object-cover rounded-xl" 
                 alt={trip?.userSelection?.location}
             />
 

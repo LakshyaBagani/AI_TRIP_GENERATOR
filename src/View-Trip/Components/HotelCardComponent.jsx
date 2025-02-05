@@ -1,7 +1,26 @@
-import React from 'react';
+import { GetPlaceDetails, PHOTO_REF_URL } from '@/Service/GlobalAPI';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function HotelCardComponent({ hotel }) {
+
+  const [photoURL,setPhotoUrl] = useState()
+      
+      const GetPlacePhoto = async () => {
+          const data = {
+              textQuery: hotel?.HotelName,
+          };
+  
+              const response = await GetPlaceDetails(data)
+              const PhotoURl = PHOTO_REF_URL.replace('{NAME}' , response.places[0].photos[3].name )
+              setPhotoUrl(PhotoURl);
+              
+      };
+  
+      useEffect(() => {
+        hotel&&GetPlacePhoto()
+      }, [hotel]);
+
   return (
     <Link
       to={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -11,7 +30,7 @@ function HotelCardComponent({ hotel }) {
     >
       <div className="hover:scale-105 transition-all cursor-pointer">
         <img
-          src='/logo.svg' 
+          src={photoURL} 
           alt={hotel?.HotelName || "Hotel Image"}
           className="w-full h-40 object-cover rounded-md"
         />

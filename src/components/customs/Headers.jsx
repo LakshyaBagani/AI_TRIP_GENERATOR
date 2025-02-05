@@ -20,10 +20,6 @@ function Headers() {
   const [openDialog, setOpenDialog] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
 
-  useEffect(() => {
-    console.log(user);
-  } , []);
-
   const login = useGoogleLogin({
     onSuccess: (codeResp) => GetUsetProfile(codeResp),
     onerror: (error) => console.log(error),

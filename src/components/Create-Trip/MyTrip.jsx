@@ -20,7 +20,7 @@ function MyTrip() {
       navigate("/");
     }
 
-    const q = query(
+    const q =  query(
       collection(db, "AITrips"),
       where("userEmail", "==", user?.email)
     );
