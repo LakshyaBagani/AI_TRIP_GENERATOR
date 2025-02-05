@@ -26,7 +26,7 @@ function InfoSection({ trip }) {
         <div>
             <img 
                 src={photoURL}
-                className="h-[600px] w-full object-cover rounded-xl" 
+                className="h-[600px] w-full object-contains rounded-xl" 
                 alt={trip?.userSelection?.location}
             />
 
