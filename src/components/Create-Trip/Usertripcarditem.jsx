@@ -13,7 +13,7 @@ function UserTripCardItem({ trip }) {
       const response = await GetPlaceDetails(data);
 
       if (response?.places?.length > 0 && response.places[0]?.photos?.length > 3) {
-        const photoUrl = PHOTO_REF_URL.replace("{NAME}", response.places[0].photos[3].name);
+        const photoUrl = PHOTO_REF_URL.replace("{NAME}", response.places[0].photos[1].name);
         setPhotoUrl(photoUrl);
       }
     } catch (error) {

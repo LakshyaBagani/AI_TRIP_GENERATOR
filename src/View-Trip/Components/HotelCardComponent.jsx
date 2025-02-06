@@ -12,7 +12,7 @@ function HotelCardComponent({ hotel }) {
     const response = await GetPlaceDetails(data);
     const PhotoURl = PHOTO_REF_URL.replace(
       "{NAME}",
-      response.places[0].photos[3].name
+      response.places[0].photos[1].name
     );
     setPhotoUrl(PhotoURl);
   };

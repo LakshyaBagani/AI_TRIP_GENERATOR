@@ -11,7 +11,7 @@ function PlaceCardItem({ place }) {
     };
 
     const response = await GetPlaceDetails(data);
-    const PhotoURL = PHOTO_REF_URL.replace('{NAME}', response.places[0].photos[3].name);
+    const PhotoURL = PHOTO_REF_URL.replace('{NAME}', response.places[0].photos[1].name);
     setPhotoUrl(PhotoURL);
   };
 

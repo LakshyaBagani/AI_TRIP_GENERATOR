@@ -1,11 +1,11 @@
 import { db } from "@/Service/FirebaseCongif";
-import { collection, query, where, getDocs } from "firebase/firestore"; // ✅ Fixed imports
+import { collection, query, where, getDocs } from "firebase/firestore"; 
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Fixed import (useNavigate instead of useNavigation)
+import { useNavigate } from "react-router-dom"; 
 import UserTripCardItem from "./Usertripcarditem";
 
 function MyTrip() {
-  const navigate = useNavigate(); // ✅ Corrected useNavigate()
+  const navigate = useNavigate(); 
   const [userTrip, setUserTrip] = useState([]);
 
   useEffect(() => {
