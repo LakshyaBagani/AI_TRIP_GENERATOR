@@ -17,11 +17,12 @@ function PlaceCardItem({ place }) {
       const PhotoURL = PHOTO_REF_URL.replace('{NAME}', response.places[0].photos[1].name);
       setPhotoUrl(PhotoURL);
     } catch (error) {
-      console.error("Failed to fetch place photo:", error);
+      console.log("Failed to fetch place photo:", error);
     } finally {
       setIsLoading(false);
     }
   };
+
 
   useEffect(() => {
     if (place) {
