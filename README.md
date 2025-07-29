@@ -4,15 +4,6 @@ AI_TRIP_GENERATOR is a full-stack travel itinerary planner that uses **Gemini AI
 
 ---
 
-## 🔧 Tech Stack
-
-- **Frontend:** React, Tailwind CSS
-- **Authentication:** Firebase Auth
-- **Backend/Storage:** Firebase Firestore & Firebase Functions
-- **AI:** Gemini API (Google Generative AI)
-- **APIs:** Google Maps API, Places API
-
----
 
 ## 🚀 Features
 
@@ -23,3 +14,14 @@ AI_TRIP_GENERATOR is a full-stack travel itinerary planner that uses **Gemini AI
 - 📝 Save and view generated plans from Firebase
 
 ---
+
+## 🔧 Tech Stack
+
+- **Frontend:** React, Tailwind CSS
+- **Authentication:** Firebase Auth
+- **Backend/Storage:** Firebase Firestore & Firebase Functions
+- **AI:** Gemini API (Google Generative AI)
+- **APIs:** Google Maps API, Places API
+
+---
+
